@@ -1,0 +1,176 @@
+\documentclass[a4paper, 14pt, dvipdfmx, fleqn]{jsarticle}
+\usepackage[top=15mm,bottom=15mm,left=10mm,right=10mm]{geometry}
+\usepackage{tcolorbox}
+\usepackage{graphics}
+\usepackage{./sty/cut}
+\usepackage{wrapfig}
+\usepackage{xcolor}
+\usepackage{caption}
+\usepackage{tikz}
+\pagestyle{empty}
+\renewcommand{\baselinestretch}{1.2}
+\definecolor{myBlue}{RGB}{30,144,255}
+
+\begin{document}
+
+    \begin{rightfigure}{9cm}{6}
+        \centering
+        \begin{tikzpicture}
+            \draw (0,0) -- (4,0) -- (4,5) -- (0,5) -- cycle;
+            \draw (2,2.5) node {ここに画像};
+        \end{tikzpicture}
+        \caption*{※ここに画像の説明}
+    \end{rightfigure}
+
+    \noindent
+    \begin{tikzpicture}
+        \draw (0,0) -- (4,0) -- (4,1) -- (0,1) -- cycle;
+        \draw (2,0.5) node {ここにロゴ};
+    \end{tikzpicture}
+
+    \vspace{1cm}
+
+    \noindent
+    {\huge \bf ここに名前}
+
+    \vspace{1.5cm}
+
+    \noindent
+    {\Large \bf ここに題名}
+
+    \vspace{2cm}
+
+    \begin{tcolorbox}[
+        colback=myBlue,
+        colframe=myBlue,
+        sharpish corners]
+        {\huge \bf \textcolor{white}{ここにタイトル}}
+    \end{tcolorbox}
+
+    {\Large \underline{\bf ここに説明。ここに説明。ここに説明。ここに説明。ここに説明。}
+    ここに説明。ここに説明。ここに説明。ここに説明。ここに説明。ここに説明。}
+
+    \begin{figure}[htbp]
+        \centering
+        \begin{tikzpicture}
+            \draw (0,0) -- (5,0) -- (5,5) -- (0,5) -- cycle;
+            \draw (2.5,2.5) node {QRコード};
+        \end{tikzpicture}
+        \caption*{ここにキャプション}
+    \end{figure}
+
+    \noindent
+    {\Large ここに説明。ここに説明。ここに説明。ここに説明。ここに説明。ここに説明。}
+
+    \vspace{1cm}
+
+    \begin{tcolorbox}[
+        colback=myBlue,
+        colframe=myBlue,
+        sharpish corners]
+        {\huge \bf \textcolor{white}{困ったときは}}
+    \end{tcolorbox}
+
+    \begin{itemize}
+        \setlength{\itemsep}{3mm}
+        \item {\Large ここに説明。ここに説明。ここに説明。ここに説明。ここに説明。ここに説明。ここに説明。ここに説明。ここに説明。ここに説明。ここに説明。}
+        \item {\Large ここに説明。ここに説明。ここに説明。ここに説明。ここに説明。ここに説明。ここに説明。ここに説明。ここに説明。ここに説明。ここに説明。}
+    \end{itemize}
+
+    \newpage
+
+    \begin{tcolorbox}[
+        colback=myBlue,
+        colframe=myBlue,
+        sharpish corners]
+        {\huge \bf \textcolor{white}{梱包内容}}
+    \end{tcolorbox}
+
+    \noindent
+    {\Large ここに説明。ここに説明。ここに説明。ここに説明。}
+
+    \noindent
+    {\Large ここに説明。ここに説明。ここに説明。ここに説明。ここに説明。ここに説明。ここに説明。
+    ここに説明。ここに説明。ここに説明。ここに説明。ここに説明。}
+
+    \vspace{1cm}
+
+    \begin{tcolorbox}
+        \vspace{10cm}
+        \hfill {\Large 表} \hfill
+        \vspace{10cm}
+    \end{tcolorbox}
+
+    \newpage
+
+    \begin{tcolorbox}[
+        colback=myBlue,
+        colframe=myBlue,
+        sharpish corners]
+        {\huge \bf \textcolor{white}{ここにタイトル}}
+    \end{tcolorbox}
+
+    \begin{wrapfigure}[6]{r}{6cm}
+        \centering
+        \begin{tikzpicture}
+            \draw (0,0) -- (5,0) -- (5,5) -- (0,5) -- cycle;
+            \draw (2.5,2.5) node {QRコード};
+        \end{tikzpicture}
+    \end{wrapfigure}
+
+    \noindent
+    {\Large \hspace{1em}ここに説明。ここに説明。ここに説明。ここに説明。ここに説明。ここに説明。ここに説明。ここに説明。ここに説明。ここに説明。ここに説明。
+    ここに説明。ここに説明。ここに説明。ここに説明。ここに説明。ここに説明。}
+
+    \vspace{3mm}
+
+    \noindent
+    {\Large ここに説明。ここに説明。ここに説明。ここに説明。ここに説明。ここに説明。ここに説明。}
+
+    \vspace{1.5cm}
+
+    \begin{tcolorbox}
+        \vspace{8.25cm}
+        \hfill {\Large フロー図} \hfill
+        \vspace{8.25cm}
+    \end{tcolorbox}
+
+    \hfill
+    {\large ここに説明。ここに説明。ここに説明。ここに説明。ここに説明。ここに説明。ここに説明。}
+
+    \newpage
+
+    \begin{tcolorbox}[
+        colback=myBlue,
+        colframe=myBlue,
+        sharpish corners]
+        {\huge \bf \textcolor{white}{ここにタイトル}}
+    \end{tcolorbox}
+
+    \noindent
+    {\Large ここに説明。ここに説明。ここに説明。ここに説明。ここに説明。ここに説明。ここに説明。}
+
+    \noindent
+    {\Large ここに説明。ここに説明。ここに説明。ここに説明。ここに説明。ここに説明。
+    ここに説明。ここに説明。ここに説明。ここに説明。}
+
+    \vspace{1cm}
+
+    \begin{tcolorbox}[
+        colback=myBlue,
+        colframe=myBlue,
+        sharpish corners]
+        {\huge \bf \textcolor{white}{ここにタイトル}}
+    \end{tcolorbox}
+
+    {\Large ここに説明。ここに説明。ここに説明。ここに説明。ここに説明。ここに説明。ここに説明。ここに説明。}
+
+    \vspace{3mm}
+
+    \noindent
+    {\Large ここに説明。ここに説明。ここに説明。ここに説明。ここに説明。ここに説明。}
+
+    \noindent
+    {\large ここに説明。ここに説明。ここに説明。ここに説明。ここに説明。ここに説明。ここに説明。}
+
+\end{document}

@@ -1,0 +1,84 @@
+%=============================================================================
+% cut.sty
+%=============================================================================
+% leftfigure, rightfigure, lefttable, righttable : produces a 'cut' at the
+% right or left of the text.
+%   by tsato@kuee.kyoto-u.ac.jp (Toru Sato)
+%      Department of Electrical Engineering II, Kyoto University
+%      Kyoto 606-01, Japan
+%
+%   Usage:  \begin{leftfigure}{width}{lines}
+%             <figure body>
+%           \end{leftfigure}
+%           <a paragraph>
+%   Example:
+%         ...preceding text...
+%
+%         \begin{leftfigure}{60mm}{12}
+%         \vspace{35mm}
+%         \caption{This figure has width of 60mm and height of 12 lines.}
+%         \end{leftfigure}  % note that here should not be a blank line
+%         This text comes at the right of the figure.
+%         If the text in this paragraph is not long enough to cover the height
+%         of the figure, use
+%         \Par
+%         Command to connect the next paragraph.
+%
+%   Limitations:
+%      1) It must be placed at the top of a paragraph, and the effect is
+%         limited inside the paragraph (so you should not put a blank line
+%         after \end{left|rightfigure}). Connect following paragraph(s) by
+%         \Par command in place of a blank line, if it is necessary.
+%         Naturally, one paragraph can contain only one left|rightfigure.
+%      2) It cannnot handle end-of-page problem. You have to place it at the
+%         right place so that entire lines are put on one page.
+%      3) You have to specify the vertical size by the number of lines.
+%         Although the paragraph may contain equations, each displayed
+%         equation should be counted as 3 lines.
+%      4) Ordinary \caption command can be used for a caption, and numbering
+%         is made properly. It is possible to put it among ordinary figures,
+%         but there is no guarantee that the order of the figures is kept
+%         right.
+%      5) The paragraph should not be the last paragraph of the document.
+%=============================================================================
+\newdimen\lfsep
+\lfsep=3ex       % separation between the figure/table and text/margin
+%=============================================================================
+\def\leftfigure#1#2{\makeblank{#1}{#2}{#1}
+\begin{nullfloat}{figure}{#1}{-#1}}
+% next \def puts the following paragraph BEFORE the closing procedure
+\def\endleftfigure#1 #2\par{\end{nullfloat}#2\par#1}
+
+\def\rightfigure#1#2{\makeblank{#1}{#2}{0pt}
+\@parwd=\textwidth \advance \@parwd by -#1
+\begin{nullfloat}{figure}{#1}{\@parwd}}
+\def\endrightfigure#1 #2\par{\end{nullfloat}#2\par#1}
+
+\def\lefttable#1#2{\makeblank{#1}{#2}{#1}
+\begin{nullfloat}{table}{#1}{-#1}}
+\def\endlefttable#1 #2\par{\end{nullfloat}#2\par#1}
+
+\def\righttable#1#2{\makeblank{#1}{#2}{0pt}
+\@parwd=\textwidth \advance \@parwd by -#1
+\begin{nullfloat}{table}{#1}{\@parwd}}
+\def\endrighttable#1 #2\par{\end{nullfloat}#2\par#1}
+%=============================================================================
+% nullfloat : produces a table or figure whose size is 0pt x 0pt
+\def\nullfloat#1#2#3{\def\@captype{#1} % #1=figure|table #2=width #3=lines
+\noindent\leavevmode\hbox to 0pt \bgroup \hskip\lfsep\hskip #3
+\vbox to 0pt \bgroup \hsize #2 \advance \hsize -2\lfsep
+\textwidth\hsize\columnwidth\hsize \@parboxrestore}
+\def\endnullfloat{\vss\egroup\hss\egroup\vskip-\baselineskip}
+
+% makeblank : make a blank space at the right or left of text
+\newdimen\@parwd \newcount\@nlp \newcount\@nlpi
+\def\rightblank#1#2{\makeblank{#1}{#2}{0pt}}
+\def\leftblank#1#2{\makeblank{#1}{#2}{#1}}
+\def\makeblank#1#2#3{ % #1=width #2=lines #3=indent
+\@parwd=\textwidth \advance \@parwd by -#1
+\@nlp=1 \@nlpi=#2 \advance \@nlpi by 1
+\edef\@PS{\parshape=\@nlpi}
+\loop\ifnum\@nlp<\@nlpi \advance \@nlp by 1 \edef\@PS{\@PS #3\@parwd}\repeat
+\edef\@PS{\@PS 0pt\textwidth} \@PS}
+\def\Par{\\[\parskip]\hspace*{\parindent}}
+%=============================================================================
