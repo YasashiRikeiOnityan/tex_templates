@@ -1,0 +1,113 @@
+\documentclass[a4paper,10pt,dvipdfmx,fleqn]{jsreport}
+
+\usepackage[top=2.5cm,bottom=3cm,left=2cm,right=2cm]{geometry}
+
+\setlength{\textwidth}{\fullwidth}
+\setlength{\evensidemargin}{\oddsidemargin}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\cfoot{\thepage}
+\rhead{\chapterTitle}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\fancypagestyle{mystyle}{
+  \renewcommand{\headrulewidth}{0pt}
+  \fancyhf{}
+  \chead{\large \bfseries ここにタイトルここにタイトルここにタイトル \\[2mm]
+  ここにタイトルここにタイトル}
+}
+
+\makeatletter
+\newcommand{\chapterTitle}{}
+\def\@makechapterhead#1{%
+  \vspace*{20pt}
+  {\parindent \z@ \raggedright \normalfont
+    \Huge\bfseries \ifnum\c@chapter>0 第\thechapter 章\space \fi #1\par\nobreak
+    \vskip 30pt
+    \xdef\chapterTitle{\ifnum\c@chapter>0 第\thechapter 章\space \fi #1}}}
+\makeatother
+
+\makeatletter
+\renewcommand{\chapter}{%
+  \if@openright\cleardoublepage\else\clearpage\fi
+  \global\@topnum\z@
+  \secdef\@chapter\@schapter}
+\makeatother
+
+\makeatletter
+\renewcommand{\section}{\@startsection{section}{1}{\z@}
+  {3.5ex \@plus 1ex \@minus .2ex}
+  {2.3ex \@plus.2ex}
+  {\normalfont\Large\bfseries}}
+\makeatother
+
+\makeatletter
+\renewcommand{\subsection}{\@startsection{subsection}{2}{\z@}%
+  {3.25ex\@plus 1ex \@minus .2ex}
+  {1.5ex \@plus .2ex}%
+  {\normalfont\large\bfseries}}
+\makeatother
+
+\setcounter{tocdepth}{2}
+
+\begin{document}
+
+  \begin{titlepage}
+    \vspace*{2cm}
+    \begin{center}
+      \Large 論文大学
+    \end{center}
+    \begin{center}
+      \Large 2023年\space\space 卒業論文
+    \end{center}
+    \vspace{1cm}
+    \begin{center}
+      \Large \bfseries ここにタイトルここにタイトルここにタイトル \\[5mm]
+      ここにタイトルここにタイトル
+    \end{center}
+    \vspace{7cm}
+    \begin{center}
+      \large 論文学部\space\space 論文執筆学科
+    \end{center}
+    \begin{center}
+      \large 指導教員\space\space 論文太郎教授
+    \end{center}
+    \vspace{1cm}
+    \begin{center}
+      \large 学生番号\space\space 22360679\space （3年A組15番）
+    \end{center}
+    \begin{center}
+      \large 論文\space 柿鯛陽
+    \end{center}
+  \end{titlepage}
+
+  \newgeometry{top=5cm,bottom=3cm,left=2cm,right=2cm}
+  \tableofcontents
+  \setcounter{page}{0}
+  \thispagestyle{mystyle}
+  \newgeometry{top=2.5cm,bottom=3cm,left=2cm,right=2cm}
+
+  % 第1章
+  \chapter{ここに章タイトル}
+    ここに章の内容を説明するよ．
+    \section{ここに節タイトル}
+      ここに節の内容を説明するよ．
+      \subsection{ここに項タイトル}
+        ここに項の内容を説明するよ．
+
+    \newpage
+    \section{ここに節タイトル}
+
+  \chapter{ここに章タイトル}
+    ここに章の内容を説明するよ．
+    \section{ここに節タイトル}
+      ここに節の内容を説明するよ．
+      \subsection{ここに項タイトル}
+        ここに項の内容を説明するよ．
+
+  \chapter*{謝辞}
+    本当にありがとうございます．
+  
+\end{document}
